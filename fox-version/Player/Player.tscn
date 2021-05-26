@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/art/Player/Chick_Right.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Player/Chick_Up.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Player/Chick_Down.png" type="Texture" id=3]
+[ext_resource path="res://Player/Player.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "sideways",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 21.1686
+
+[node name="Player" type="Area2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1, 0.983962 )
+frames = SubResource( 1 )
+animation = "down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4.5 )
+scale = Vector2( -1.50425, -1.67783 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

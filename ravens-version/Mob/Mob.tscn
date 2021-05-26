@@ -1,0 +1,64 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/art/Mobs/raven-black0020.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Mobs/raven-black0023.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Mobs/raven-black0019.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Mobs/raven-black0025.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Mobs/raven-black0024.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/Mobs/raven-black0016.png" type="Texture" id=6]
+[ext_resource path="res://Mob/Mob.gd" type="Script" id=7]
+[ext_resource path="res://assets/art/Mobs/raven-black0004.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/Mobs/raven-black0011.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/Mobs/raven-black0015.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/Mobs/raven-black0005.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/Mobs/raven-black0001.png" type="Texture" id=12]
+[ext_resource path="res://assets/art/Mobs/raven-black0007.png" type="Texture" id=13]
+[ext_resource path="res://assets/art/Mobs/raven-black0008.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/Mobs/raven-black0012.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/Mobs/raven-black0014.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/Mobs/raven-black0018.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/Mobs/raven-black0010.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/Mobs/raven-black0003.png" type="Texture" id=19]
+[ext_resource path="res://assets/art/Mobs/raven-black0006.png" type="Texture" id=20]
+[ext_resource path="res://assets/art/Mobs/raven-black0009.png" type="Texture" id=21]
+[ext_resource path="res://assets/art/Mobs/raven-black0013.png" type="Texture" id=22]
+[ext_resource path="res://assets/art/Mobs/raven-black0017.png" type="Texture" id=23]
+[ext_resource path="res://assets/art/Mobs/raven-black0021.png" type="Texture" id=24]
+[ext_resource path="res://assets/art/Mobs/raven-black0002.png" type="Texture" id=25]
+[ext_resource path="res://assets/art/Mobs/raven-black0022.png" type="Texture" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 17 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "fly",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+[node name="Mob" type="RigidBody2D" groups=[
+"mobs",
+]]
+scale = Vector2( 1.00229, 1 )
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+animation = "fly"
+frame = 6
+speed_scale = 4.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3, 6 )
+rotation = 1.5708
+scale = Vector2( 1.61018, -2.81271 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Winds Of Stories.mp3-71447afb8800eda2b30a2b2801e45394.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Winds Of Stories.mp3"
+dest_files=[ "res://.import/Winds Of Stories.mp3-71447afb8800eda2b30a2b2801e45394.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
